@@ -16,7 +16,7 @@ export default function NavLinks() {
 
   const links = [
     { name: 'Home', href: '/dashboard', icon: HomeIcon, roles: ['user', 'admin', 'writer'] },
-    { name: 'Carte', href: '/dashboard/cart', icon: MapIcon, roles: ['user', 'admin', 'writer'] },
+    { name: 'Carte', href: '/dashboard/map', icon: MapIcon, roles: ['user', 'admin', 'writer'] },
     {
       name: 'Notification',
       href: '/dashboard/notification',

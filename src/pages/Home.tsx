@@ -94,7 +94,7 @@ export default function Home() {
                                     ))}
                                 </div>
                                 <div className="py-6">
-                                    {!isAuthenticated ? (<Link to="/login" className="text-sm/6  font-semibold text-red-900">
+                                    {!isAuthenticated ? (<Link to="/auth/login" className="text-sm/6  font-semibold text-red-900">
                                         connexion <span aria-hidden="true">&rarr;</span>
                                     </Link>) : (
                                         <Link to={"/dashboard"} className="text-red-400 bg-green-50 rounded-full flex items-center justify-center w-10 h-10">

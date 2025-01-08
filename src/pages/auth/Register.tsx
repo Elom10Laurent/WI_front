@@ -24,7 +24,7 @@ const Register = () => {
             });
 
             toast.success('Enregistrment reussie !')
-            navigate('/login');
+            navigate('/auth/login');
         } catch (error) {
             toast.error('Enregistrment échoué')
             console.error('Erreur réseau:', error);

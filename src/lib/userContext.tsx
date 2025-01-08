@@ -73,7 +73,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setLoading(false); 
       } else {
         clearToken();
-        navigate('/login');
+        navigate('/auth/login');
       }
     } else {
       setLoading(false); 

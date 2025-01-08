@@ -15,6 +15,7 @@ import UserList from "./components/UserList";
 import MyProfile from "./pages/MyProfile";
 import { ProtectedRoute } from "./lib/ProtectedRoute";
 import Unauthorized from "./lib/Unauthorized";
+import MapPage from "./pages/MapPage";
 // import User from "./pages/User";
 
 
@@ -25,16 +26,15 @@ function App() {
       <UserProvider>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/register" element={<Register />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
-
-
           <Route path="/dashboard" element={<ProtectedRoute allowedRoles={['admin', 'user', 'writer']} />}>
             <Route path="" element={<Layout />}>
               <Route index element={<Messagerie />} />
               <Route path="messagerie/create" element={<ProtectedRoute allowedRoles={['admin', 'writer']} ><MessagerieCreateForm /></ProtectedRoute>} />
               <Route path="messagerie/:id/update" element={<MessagerieUpdateForm />} />
+              <Route path="map" element={< MapPage />} />
               <Route path="notification" element={<Notification />} />
               <Route path="notification/create" element={<ProtectedRoute allowedRoles={['admin', 'writer']} ><NotificationCreateForm /></ProtectedRoute>} />
               <Route path="notification/update" element={<NotificationUpdateForm />} />
