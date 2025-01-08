@@ -1,9 +1,11 @@
+import FloatButton from '../components/FloatButton'
 import NotificationsCard from '../components/notification/cards'
 
 const Notification = () => {
   return (
     <div>
-      <NotificationsCard/>
+      <NotificationsCard />
+      <FloatButton link='create' />
     </div>
   )
 }

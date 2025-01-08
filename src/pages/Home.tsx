@@ -4,7 +4,7 @@ import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import Logo from '/src/assets/LOGO.svg';
-import { useUser } from '../lib/userContext'
+import { useAuth } from '../lib/userContext'
 import { getInitials } from '../lib/utils'
 
 
@@ -13,7 +13,7 @@ const navigation = [
 ]
 
 export default function Home() {
-    const { isAuthenticated, user } = useUser()
+    const { isAuthenticated, user } = useAuth()
     console.log(isAuthenticated)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -50,7 +50,7 @@ export default function Home() {
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        {!isAuthenticated ? (<Link to="/login" className="text-sm/6  font-semibold text-red-900">
+                        {!isAuthenticated ? (<Link to="/auth/login" className="text-sm/6  font-semibold text-red-900">
                             connexion <span aria-hidden="true">&rarr;</span>
                         </Link>) : (<p className=' '>
                             <Link to={'/dashboard'} className="text-green-400 bg-green-50 rounded-full flex items-center justify-center w-10 h-10">
@@ -133,7 +133,7 @@ export default function Home() {
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <Link
-                                to="/register"
+                                to="/auth/register"
                                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
                                 Commencer

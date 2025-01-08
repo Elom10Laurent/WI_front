@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import DeleteButton from '../DeleteButton'
 import ReadMoreArea from '@foxeian/react-read-more';
 import axios from 'axios';
-import { useUser } from '../../lib/userContext';
+import { useAuth } from '../../lib/userContext';
+import { NotificationsCardsSkeleton } from '../skeletons';
 
 interface Notification {
     _id: string;
@@ -16,7 +17,7 @@ const NotificationsCard = () => {
     const [userNotifications, setUserNotifications] = useState<Notification[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const token = localStorage.getItem('token');
-    const { user } = useUser()
+    const { user } = useAuth()
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -43,8 +44,8 @@ const NotificationsCard = () => {
 
     return (
         <div >
-            {loading ? (
-                <p className="text-center text-slate-900 w-full">Chargement de vos publications...</p>
+            {NotificationsCard.length === 0 || loading ? (
+                <p className="text-center text-slate-900 w-full"> <NotificationsCardsSkeleton /> </p>
             ) : (userNotifications.map((notification, idx) => (
                 <div key={idx} className="flex flex-col p-8 mb-4 bg-white shadow-md hover:shadow-lg rounded-2xl">
                     <div className="flex items-center justify-between">
@@ -73,7 +74,7 @@ const NotificationsCard = () => {
                         {!user || user?.role !== "admin" ? (<DeleteButton
                             resourceId={notification?._id}
                             endpoint={`${import.meta.env.VITE_API_URL}notifications`}
-                            styles="flex-no-shrink bg-red-500 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 text-white rounded-full "
+                            styles="flex-no-shrink bg-red-500 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 text-white rounded-full hidden "
                         />) : (<DeleteButton
                             resourceId={notification?._id}
                             endpoint="/dashboard/notifications"

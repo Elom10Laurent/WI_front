@@ -4,9 +4,8 @@ import FloatButton from '../components/FloatButton'
 const Messagerie = () => {
   return (
     <div>
-    <MessagerieCards/>
-
-    <FloatButton/>
+      <MessagerieCards />
+      <FloatButton link='messagerie/create' />
     </div>
   )
 }

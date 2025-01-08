@@ -5,7 +5,7 @@ import { jwtDecode } from 'jwt-decode'
 interface DecodedToken {
   id: string;
   username: string;
-  role: string;
+  role: ImportMetaEnv['VITE_USER_ROLE'];
   email: string;
   exp: number;
 }
@@ -132,10 +132,10 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
 };
 
-export const useUser = () => {
+export const useAuth = () => {
   const context = useContext(UserContext);
   if (!context) {
-    throw new Error('useUser doit être utilisé à l\'intérieur d\'un UserProvider');
+    throw new Error('useAuth doit être utilisé à l\'intérieur d\'un UserProvider');
   }
   return context;
 };

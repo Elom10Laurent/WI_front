@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { toast, Toaster } from 'sonner';
 import { PencilSquareIcon } from '@heroicons/react/24/outline';
-import { useUser } from '../lib/userContext';
+import { useAuth } from '../lib/userContext';
 
 type FormData = {
     username: string;
@@ -16,7 +16,7 @@ type FormData = {
 };
 
 const MyProfile = () => {
-    const { user } = useUser();
+    const { user } = useAuth();
     const [imagePreview, setImagePreview] = useState<string>("/src/assets/icons8-tortue-ninja-64.png");
     // const [imageFile, setImageFile] = useState<File | null | undefined>(null);
     const [formData, setFormData] = useState<FormData>({

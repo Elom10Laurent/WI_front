@@ -9,10 +9,10 @@ import {
 } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { Link, useLocation } from 'react-router-dom';
-import { useUser } from '../lib/userContext';
+import { useAuth } from '../lib/userContext';
 
 export default function NavLinks() {
-  const { user } = useUser()
+  const { user } = useAuth()
 
   const links = [
     { name: 'Home', href: '/dashboard', icon: HomeIcon, roles: ['user', 'admin', 'writer'] },

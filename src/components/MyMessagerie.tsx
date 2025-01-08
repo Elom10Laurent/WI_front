@@ -4,7 +4,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 import DeleteButton from './DeleteButton';
-import { useUser } from '../lib/userContext';
+import { useAuth } from '../lib/userContext';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -28,7 +28,7 @@ const MyMessagerie = () => {
     const [userPublications, setUserPublications] = useState<Publication[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const token = localStorage.getItem('token');
-    const { user } = useUser();
+    const { user } = useAuth();
 
     useEffect(() => {
         const fetchUserData = async () => {

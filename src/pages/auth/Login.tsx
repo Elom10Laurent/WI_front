@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Logo from "../../assets/LOGO.svg"
-import { useUser } from "../../lib/userContext";
+import { useAuth } from "../../lib/userContext";
 import { toast, Toaster } from "sonner";
 const Login = () => {
-    const { login } = useUser()
+    const { login } = useAuth()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const handleSubmit = async (event: React.FormEvent) => {

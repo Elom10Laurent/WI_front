@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 // import { toast, Toaster } from 'sonner';
-import { useUser } from '../lib/userContext';
+import { useAuth } from '../lib/userContext';
 export interface User {
     _id: string;
     email: string;
@@ -15,7 +15,7 @@ export interface User {
 
 
 const UserList = () => {
-    const { user } = useUser();
+    const { user } = useAuth();
     const token = localStorage.getItem('token');
     const [users, setUsers] = useState<User[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
