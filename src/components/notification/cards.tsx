@@ -40,11 +40,10 @@ const NotificationsCard = () => {
         }
     }, [token]);
 
-    console.log(userNotifications)
-
+ 
     return (
         <div >
-            {NotificationsCard.length === 0 || loading ? (
+            {userNotifications.length === 0 || loading ? (
                 <p className="text-center text-slate-900 w-full"> <NotificationsCardsSkeleton /> </p>
             ) : (userNotifications.map((notification, idx) => (
                 <div key={idx} className="flex flex-col p-8 mb-4 bg-white shadow-md hover:shadow-lg rounded-2xl">
